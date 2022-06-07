@@ -1,10 +1,9 @@
-import React from 'react'
-import css from './index.module.css'
+import React from "react";
+import { TUsernameProps } from "./index.definition";
+import css from "./index.module.css";
 
-function UserName({user}) {
-  return (
-    <button className={css.username}>Hola {user}!</button>
-  )
+function UserName({ user }: TUsernameProps) {
+  return <button className={css.username}>Hola {user}!</button>;
 }
 
-export default UserName
+export default UserName;
