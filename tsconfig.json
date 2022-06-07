@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": {
+          "classnameTransform": "dashes",
+          "customMatcher": ".m.css$",
+          "customRenderer": "./myRenderer.js",
+          "dotenvOptions": {},
+          "postcssOptions": {},
+          "rendererOptions": {}
+        }
+      }
+    ],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
