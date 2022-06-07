@@ -34,6 +34,6 @@ test("renders calendario", () => {
 test('Daire logo must have src = "/logo.svg" and alt = "Logo"', () => {
   render(<Dashboard />);
   const logo = screen.getByRole("img");
-  expect(logo).toHaveAttribute("src", "/logo.svg");
-  expect(logo).toHaveAttribute("alt", "Logo");
+  expect(logo).toHaveAttribute("src", "logo-daire.png");
+  expect(logo).toHaveAttribute("alt", "logo");
 });
