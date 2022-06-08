@@ -3,7 +3,11 @@ import { TUsernameProps } from "./index.definition";
 import css from "./index.module.css";
 
 function UserName({ user }: TUsernameProps) {
-  return <button className={css.username}>Hola {user}!</button>;
-}
+  return (
+  <div className={css.container}>
+      <button className={css.username}><h4>Hola {user}!</h4></button>
 
+      </div>
+  )
+}
 export default UserName;
