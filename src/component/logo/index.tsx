@@ -3,7 +3,11 @@ import logo from "../../Assets/logo-daire.png";
 import css from "./index.module.css";
 
 function Logo() {
-  return <img src={logo} alt="logo" className={css.logo} />;
+  return (
+  <div className={css.container}>
+  <img src={logo} alt="logo" className={css.logo} />
+  </div>
+  )
 }
 
 export default Logo;

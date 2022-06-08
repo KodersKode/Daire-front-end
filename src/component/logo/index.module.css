@@ -1,4 +1,12 @@
-.logo{
+.container{
     display: flex;
-    max-height: 10vh;
+    justify-content: center;
+    
+}
+
+.logo{
+    
+    max-height: 30vh;
+    
+    
 }

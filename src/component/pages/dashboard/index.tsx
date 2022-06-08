@@ -7,7 +7,7 @@ import Logo from "../../logo";
 function Dashboard() {
   return (
     <div className={css.dashboardContainer}>
-      <p>Hi amanda</p>
+      
       <UserName user="Eva" />
       <Logo />
       <div className={css.buttonContainer}>
