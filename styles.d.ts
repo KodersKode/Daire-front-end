@@ -4,6 +4,6 @@ declare module "*.module.css" {
 }
 
 declare module "*.png" {
-   const value: any;
-   export = value;
+  const value: string;
+  export = value;
 }

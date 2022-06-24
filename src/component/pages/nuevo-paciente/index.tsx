@@ -1,17 +1,21 @@
 import React from "react";
 import SmallTextBox from "../../smallTextBox";
-import {useState} from 'react'
+import { useState } from "react";
 
 function NuevoPaciente() {
+  const [value, setValue] = useState("");
 
-  const[value, setValue] = useState('')
-
-  function handleChange(e){
-    setValue(e.target.value)
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setValue(e.target.value);
   }
   return (
     <form>
-      <SmallTextBox label="First name"  value={value} handleChange={handleChange}/>
+      <SmallTextBox
+        label="First name"
+        value={value}
+        // handleChange={handleChange}
+        onChange={handleChange}
+      />
     </form>
   );
 }
