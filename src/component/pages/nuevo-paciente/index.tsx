@@ -1,21 +1,30 @@
 import React from "react";
 import SmallTextBox from "../../smallTextBox";
 import { useState } from "react";
+import css from './index.module.css'
 
 function NuevoPaciente() {
-  const [value, setValue] = useState("");
+  const [nombre, setNombre] = useState(""); //firstName
+  const [apellido, setApellido] = useState('') //lastName
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setValue(e.target.value);
+    setNombre(e.target.value);
   }
   return (
-    <form>
+    <form className={css.form}>
+      <div className={css.section}>
+        <h1>Datos personales</h1>
       <SmallTextBox
-        label="First name"
-        value={value}
-        // handleChange={handleChange}
+        label="Nombre"
+        value={nombre}
         onChange={handleChange}
       />
+        <SmallTextBox
+        label="Apellido"
+        value={apellido}
+        onChange={(e)=>{setApellido(e.target.value)}}
+      />
+      </div>
     </form>
   );
 }
