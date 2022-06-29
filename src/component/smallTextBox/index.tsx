@@ -9,7 +9,7 @@ function SmallTextBox({
   onChange,
 }: TSmallTextBoxProps) {
   return (
-    <div>
+    <div className={css.stb}>
       <label>{label}</label>
       <input
         type="text"
