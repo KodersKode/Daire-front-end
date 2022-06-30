@@ -4,6 +4,7 @@ import { useState } from "react";
 import css from "./index.module.css";
 import DropDown from "../../dropDown";
 import DateSelector from "../../dateSelector";
+import LargeTextBox from "../../largeTextBox";
 
 function NuevoPaciente() {
   const [dob, setDob] = useState(new Date());
@@ -15,6 +16,13 @@ function NuevoPaciente() {
   const [padres, setPadres] = useState(""); //parent
   const [telefono, setTelefono] = useState(""); //phone-number
   const [email, setEmail] = useState(""); //email
+  const [genograma, setGenograma] = useState(""); //family tree
+  const [motivo, setMotivo] = useState(""); // reason for consultation
+  const [antecedentes, setAntecedentes] = useState(""); //medical history
+  const [temperamento, setTemperamento] = useState(""); //nature of child
+  const [sociabilizacion, setSociabilizacion] = useState(""); //social skills
+  const [comportamiento, setComportamiento] = useState(""); //behaviour
+  const [aprendizajes, setAprendizajes] = useState(""); // teachings / what they have learned
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -116,6 +124,56 @@ function NuevoPaciente() {
             }}
           />
         </div>
+        </div>
+        <div className={css.section}>
+          <h1>Genograma</h1>
+          <LargeTextBox text={genograma} onChange={(e) => {setGenograma(e.target.value)}}/>
+        
+      </div>
+      <div className={css.section}>
+        <h1>Motivo de consulta</h1>
+        <LargeTextBox text={motivo} onChange={(e) => {setMotivo(e.target.value)}}/>
+        <h1>Antecedentes / Tratamientos previos:</h1>
+         <LargeTextBox text={antecedentes} onChange={(e) => {setAntecedentes(e.target.value)}}/>
+      </div>
+      <div className={css.section}>
+        <h1>Descripción del niño/niña o adolescente:</h1>
+        <div className={css.subsection}>
+          <div className={css.midbox}>
+           <SmallTextBox
+            label="Temperamento"
+            value={temperamento}
+            onChange={(e) => {
+              setTemperamento(e.target.value);
+            }}
+            
+          />
+          </div>
+           <SmallTextBox
+            label="Sociabilización"
+            value={sociabilizacion}
+            onChange={(e) => {
+              setSociabilizacion(e.target.value);
+            }}
+          />
+          
+           <SmallTextBox
+            label="Comportamiento en casa y en la escuela:"
+            value={comportamiento}
+            onChange={(e) => {
+              setComportamiento(e.target.value);
+            }}
+          />
+           <SmallTextBox
+            label="Aprendizajes"
+            value={aprendizajes}
+            onChange={(e) => {
+              setAprendizajes(e.target.value);
+            }}
+          />
+
+        </div>
+
       </div>
     </form>
   );
