@@ -9,13 +9,14 @@ function SmallTextBox({
   onChange,
 }: TSmallTextBoxProps) {
   return (
-    <div className={css.stb}>
-      <label>{label}</label>
+    <div className={css.smallTextBox}>
+      <label htmlFor="smallTextBox">{label}</label>
       <input
+        name="smallTextBox"
         type="text"
         value={value}
         onChange={onChange}
-        className={css.smallTextBox}
+        className={css.inputBox}
       />
     </div>
   );

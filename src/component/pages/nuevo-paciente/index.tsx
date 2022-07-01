@@ -23,6 +23,13 @@ function NuevoPaciente() {
   const [sociabilizacion, setSociabilizacion] = useState(""); //social skills
   const [comportamiento, setComportamiento] = useState(""); //behaviour
   const [aprendizajes, setAprendizajes] = useState(""); // teachings / what they have learned
+  const [embarazos, setEmbarazos] = useState(""); //pregnancy, labour, breastfeeding
+  const [lenguage, setLenguage] = useState(""); //speech or language development
+  const [psicomotriz, setPsicomotriz] = useState(""); //hand eye coordination - psychomotor
+  const [vision, setVision] = useState(""); //vision and hearing
+  const [alimentacion, setAlimentacion] = useState(""); //diet
+  const [esfinteres, setEsfinteres] = useState(""); //control of bowels
+  const [adaptacion, setAdaptacion] = useState(""); //Adapting to school or nursery
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -124,56 +131,140 @@ function NuevoPaciente() {
             }}
           />
         </div>
-        </div>
-        <div className={css.section}>
-          <h1>Genograma</h1>
-          <LargeTextBox text={genograma} onChange={(e) => {setGenograma(e.target.value)}}/>
-        
+      </div>
+      <div className={css.section}>
+        <h1>Genograma</h1>
+        <LargeTextBox
+          text={genograma}
+          onChange={(e) => {
+            setGenograma(e.target.value);
+          }}
+        />
       </div>
       <div className={css.section}>
         <h1>Motivo de consulta</h1>
-        <LargeTextBox text={motivo} onChange={(e) => {setMotivo(e.target.value)}}/>
+        <LargeTextBox
+          text={motivo}
+          onChange={(e) => {
+            setMotivo(e.target.value);
+          }}
+        />
         <h1>Antecedentes / Tratamientos previos:</h1>
-         <LargeTextBox text={antecedentes} onChange={(e) => {setAntecedentes(e.target.value)}}/>
+        <LargeTextBox
+          text={antecedentes}
+          onChange={(e) => {
+            setAntecedentes(e.target.value);
+          }}
+        />
       </div>
       <div className={css.section}>
         <h1>Descripción del niño/niña o adolescente:</h1>
         <div className={css.subsection}>
           <div className={css.midbox}>
-           <SmallTextBox
-            label="Temperamento"
-            value={temperamento}
-            onChange={(e) => {
-              setTemperamento(e.target.value);
-            }}
-            
-          />
+            <LargeTextBox
+              label="Temperamento"
+              text={temperamento}
+              onChange={(e) => {
+                setTemperamento(e.target.value);
+              }}
+            />
           </div>
-           <SmallTextBox
-            label="Sociabilización"
-            value={sociabilizacion}
-            onChange={(e) => {
-              setSociabilizacion(e.target.value);
-            }}
-          />
-          
-           <SmallTextBox
-            label="Comportamiento en casa y en la escuela:"
-            value={comportamiento}
-            onChange={(e) => {
-              setComportamiento(e.target.value);
-            }}
-          />
-           <SmallTextBox
-            label="Aprendizajes"
-            value={aprendizajes}
-            onChange={(e) => {
-              setAprendizajes(e.target.value);
-            }}
-          />
-
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Sociabilización"
+              text={sociabilizacion}
+              onChange={(e) => {
+                setSociabilizacion(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Comportamiento en casa y en la escuela:"
+              text={comportamiento}
+              onChange={(e) => {
+                setComportamiento(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Aprendizajes"
+              text={aprendizajes}
+              onChange={(e) => {
+                setAprendizajes(e.target.value);
+              }}
+            />
+          </div>
         </div>
-
+      </div>
+      <div className={css.section}>
+        <h1>Desarrollo</h1>
+        <div className={css.subsection}>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Embarazos/ parto/ lactancia"
+              text={embarazos}
+              onChange={(e) => {
+                setEmbarazos(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Desarrollo de lenguage"
+              text={lenguage}
+              onChange={(e) => {
+                setLenguage(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Desarrollo psicomotriz"
+              text={psicomotriz}
+              onChange={(e) => {
+                setPsicomotriz(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Vision y audicion"
+              text={vision}
+              onChange={(e) => {
+                setVision(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Alimentacion / sueno"
+              text={alimentacion}
+              onChange={(e) => {
+                setAlimentacion(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Control de esfinteres"
+              text={esfinteres}
+              onChange={(e) => {
+                setEsfinteres(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.midbox}>
+            <LargeTextBox
+              label="Adaptacion a la escuela / guarderia"
+              text={adaptacion}
+              onChange={(e) => {
+                setAdaptacion(e.target.value);
+              }}
+            />
+          </div>
+        </div>
       </div>
     </form>
   );

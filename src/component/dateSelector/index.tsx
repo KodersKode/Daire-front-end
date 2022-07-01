@@ -5,7 +5,7 @@ import css from "./index.module.css";
 
 function DateSelector({ label, onChange, value }: TDateSelectorProps) {
   return (
-    <div>
+    <div className={css.dateSelector}>
       <label htmlFor="datePicker">{label}</label>
       <DatePicker
         name="datePicker"

@@ -15,7 +15,7 @@
   justify-content: center;
   flex-direction: column;
   background-color: white;
-  width: 60em;
+  width: 70vw;
   align-items: center;
   border: 2px solid #483558;
   border-radius: 10px;
@@ -26,9 +26,9 @@
 .subsection {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3em 3em;
+  grid-gap: 3em 15vw;
   /* border: 2px solid red; */
-  width: 70%;
+  /* width: 70%; */
   align-items: center;
   justify-content: center;
   align-content: center;
@@ -70,7 +70,7 @@ h1 {
 
 /* .apellido{
     width: 50%
-} */ 
+} */
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -79,6 +79,15 @@ h1 {
   width: 20em;
 }
 
-/* .midbox{
-    height: 10em;
-    /* background-color: red; */
+.midbox :nth-child(2) {
+  width: 15em;
+  height: 5em;
+  margin-top: 1em;
+}
+
+.midbox :nth-child(1) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 10em;
+}
