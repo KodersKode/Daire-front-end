@@ -34,7 +34,7 @@ function NuevoPaciente() {
   const [antecedentesP, setAntecedentesP] = useState(""); //personal background
   const [antecedentesF, setAntecedentesF] = useState(""); // family history
   const [observaciones, setObservaciones] = useState(""); //observations or comments
-  const [profesional, setProfesional] = useState(""); //therapist name
+  // const [profesional, setProfesional] = useState(""); //therapist name
   const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
