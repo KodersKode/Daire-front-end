@@ -5,6 +5,7 @@ import css from "./index.module.css";
 import DropDown from "../../dropDown";
 import DateSelector from "../../dateSelector";
 import LargeTextBox from "../../largeTextBox";
+import AvailabilitySelector from "../../availabilitySelector";
 
 function NuevoPaciente() {
   const [dob, setDob] = useState(new Date());
@@ -30,6 +31,11 @@ function NuevoPaciente() {
   const [alimentacion, setAlimentacion] = useState(""); //diet
   const [esfinteres, setEsfinteres] = useState(""); //control of bowels
   const [adaptacion, setAdaptacion] = useState(""); //Adapting to school or nursery
+  const [antecedentesP, setAntecedentesP] = useState(""); //personal background
+  const [antecedentesF, setAntecedentesF] = useState(""); // family history
+  const [observaciones, setObservaciones] = useState(""); //observations or comments
+  const [profesional, setProfesional] = useState(""); //therapist name
+  const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -50,8 +56,8 @@ function NuevoPaciente() {
   return (
     <form className={css.form}>
       <h1 className={css.header}>Nuevo Paciente</h1>
-      <div className={css.wrapper}>
-        <DropDown />
+      <div className={css.subsection}>
+        <DropDown label="Profesional que realiza primer visita: " />
         <DateSelector label="Fecha" />
       </div>
       <div className={css.section}>
@@ -266,6 +272,56 @@ function NuevoPaciente() {
           </div>
         </div>
       </div>
+      <div className={css.section}>
+      <h1>Antecedentes personales</h1>
+      <LargeTextBox
+          text={antecedentesP}
+          onChange={(e) => {
+            setAntecedentesP(e.target.value);
+          }}
+        />
+        </div>
+         <div className={css.section}>
+      <h1>Antecedentes familiares</h1>
+      <LargeTextBox
+          text={antecedentesF}
+          onChange={(e) => {
+            setAntecedentesF(e.target.value);
+          }}
+        />
+        </div>
+              <div className={css.section}>
+      <h1>Obervaciones</h1>
+      <LargeTextBox
+          text={observaciones}
+          onChange={(e) => {
+            setObservaciones(e.target.value);
+          }}
+        />
+        </div>
+        <div className={css.section}>
+          <h1>Datos del centro</h1>
+          <div className={css.subsection}>
+      <DropDown label="Nombre del profesional de referencia:" />
+      <DropDown label="Forma de pago" />
+       
+       </div>
+        <div className={css.lastsection}>
+      <div className={css.privadaBeca}>
+         <DropDown label="Privada/beca" />
+         <div className={css.midbox}>
+          <LargeTextBox
+          text={privadaBeca}
+          onChange={(e) => {
+            setPrivadaBeca(e.target.value);
+          }}
+        />
+        </div>
+       </div>
+       <AvailabilitySelector />
+       </div>
+        </div>
+
     </form>
   );
 }
