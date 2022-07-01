@@ -1,0 +1,12 @@
+.dateSelector {
+  display: flex;
+  justify-content: center;
+
+  flex-direction: column;
+  width: 10em;
+}
+
+.datePicker {
+  margin-top: 1em;
+  width: 13em;
+}
