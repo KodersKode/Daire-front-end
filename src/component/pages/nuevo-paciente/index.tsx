@@ -8,6 +8,7 @@ import LargeTextBox from "../../largeTextBox";
 import AvailabilitySelector from "../../availabilitySelector";
 
 function NuevoPaciente() {
+  const [fecha, setFecha] = useState(new Date());
   const [dob, setDob] = useState(new Date());
   const [nombre, setNombre] = useState(""); //firstName
   const [apellido, setApellido] = useState(""); //lastName
@@ -34,7 +35,7 @@ function NuevoPaciente() {
   const [antecedentesP, setAntecedentesP] = useState(""); //personal background
   const [antecedentesF, setAntecedentesF] = useState(""); // family history
   const [observaciones, setObservaciones] = useState(""); //observations or comments
-  // const [profesional, setProfesional] = useState(""); //therapist name
+  const [profesional, setProfesional] = useState(""); //therapist name
   const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -57,8 +58,12 @@ function NuevoPaciente() {
     <form className={css.form}>
       <h1 className={css.header}>Nuevo Paciente</h1>
       <div className={css.subsection}>
-        <DropDown label="Profesional que realiza primer visita: " />
-        <DateSelector label="Fecha" />
+        <DropDown
+          label="Profesional que realiza primer visita: "
+          onChange={setProfesional}
+          value={profesional}
+        />
+        <DateSelector label="Fecha" onChange={setFecha} value={fecha} />
       </div>
       <div className={css.section}>
         <h1>Datos personales</h1>
@@ -141,7 +146,7 @@ function NuevoPaciente() {
       <div className={css.section}>
         <h1>Genograma</h1>
         <LargeTextBox
-          text={genograma}
+          value={genograma}
           onChange={(e) => {
             setGenograma(e.target.value);
           }}
@@ -150,14 +155,14 @@ function NuevoPaciente() {
       <div className={css.section}>
         <h1>Motivo de consulta</h1>
         <LargeTextBox
-          text={motivo}
+          value={motivo}
           onChange={(e) => {
             setMotivo(e.target.value);
           }}
         />
         <h1>Antecedentes / Tratamientos previos:</h1>
         <LargeTextBox
-          text={antecedentes}
+          value={antecedentes}
           onChange={(e) => {
             setAntecedentes(e.target.value);
           }}
@@ -169,7 +174,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Temperamento"
-              text={temperamento}
+              value={temperamento}
               onChange={(e) => {
                 setTemperamento(e.target.value);
               }}
@@ -178,7 +183,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Sociabilización"
-              text={sociabilizacion}
+              value={sociabilizacion}
               onChange={(e) => {
                 setSociabilizacion(e.target.value);
               }}
@@ -187,7 +192,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Comportamiento en casa y en la escuela:"
-              text={comportamiento}
+              value={comportamiento}
               onChange={(e) => {
                 setComportamiento(e.target.value);
               }}
@@ -196,7 +201,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Aprendizajes"
-              text={aprendizajes}
+              value={aprendizajes}
               onChange={(e) => {
                 setAprendizajes(e.target.value);
               }}
@@ -210,7 +215,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Embarazos/ parto/ lactancia"
-              text={embarazos}
+              value={embarazos}
               onChange={(e) => {
                 setEmbarazos(e.target.value);
               }}
@@ -219,7 +224,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Desarrollo de lenguage"
-              text={lenguage}
+              value={lenguage}
               onChange={(e) => {
                 setLenguage(e.target.value);
               }}
@@ -228,7 +233,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Desarrollo psicomotriz"
-              text={psicomotriz}
+              value={psicomotriz}
               onChange={(e) => {
                 setPsicomotriz(e.target.value);
               }}
@@ -237,7 +242,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Vision y audicion"
-              text={vision}
+              value={vision}
               onChange={(e) => {
                 setVision(e.target.value);
               }}
@@ -246,7 +251,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Alimentacion / sueno"
-              text={alimentacion}
+              value={alimentacion}
               onChange={(e) => {
                 setAlimentacion(e.target.value);
               }}
@@ -255,7 +260,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Control de esfinteres"
-              text={esfinteres}
+              value={esfinteres}
               onChange={(e) => {
                 setEsfinteres(e.target.value);
               }}
@@ -264,7 +269,7 @@ function NuevoPaciente() {
           <div className={css.midbox}>
             <LargeTextBox
               label="Adaptacion a la escuela / guarderia"
-              text={adaptacion}
+              value={adaptacion}
               onChange={(e) => {
                 setAdaptacion(e.target.value);
               }}
@@ -273,55 +278,54 @@ function NuevoPaciente() {
         </div>
       </div>
       <div className={css.section}>
-      <h1>Antecedentes personales</h1>
-      <LargeTextBox
-          text={antecedentesP}
+        <h1>Antecedentes personales</h1>
+        <LargeTextBox
+          value={antecedentesP}
           onChange={(e) => {
             setAntecedentesP(e.target.value);
           }}
         />
-        </div>
-         <div className={css.section}>
-      <h1>Antecedentes familiares</h1>
-      <LargeTextBox
-          text={antecedentesF}
+      </div>
+      <div className={css.section}>
+        <h1>Antecedentes familiares</h1>
+        <LargeTextBox
+          value={antecedentesF}
           onChange={(e) => {
             setAntecedentesF(e.target.value);
           }}
         />
-        </div>
-              <div className={css.section}>
-      <h1>Obervaciones</h1>
-      <LargeTextBox
-          text={observaciones}
+      </div>
+      <div className={css.section}>
+        <h1>Obervaciones</h1>
+        <LargeTextBox
+          value={observaciones}
           onChange={(e) => {
             setObservaciones(e.target.value);
           }}
         />
+      </div>
+      <div className={css.section}>
+        <h1>Datos del centro</h1>
+        <div className={css.subsection}>
+          <DropDown label="Nombre del profesional de referencia:" />
+          <DropDown label="Forma de pago" />
         </div>
-        <div className={css.section}>
-          <h1>Datos del centro</h1>
-          <div className={css.subsection}>
-      <DropDown label="Nombre del profesional de referencia:" />
-      <DropDown label="Forma de pago" />
-       
-       </div>
         <div className={css.lastsection}>
-      <div className={css.privadaBeca}>
-         <DropDown label="Privada/beca" />
-         <div className={css.midbox}>
-          <LargeTextBox
-          text={privadaBeca}
-          onChange={(e) => {
-            setPrivadaBeca(e.target.value);
-          }}
-        />
+          <div className={css.privadaBeca}>
+            <DropDown label="Privada/beca" />
+            <div className={css.midbox}>
+              <LargeTextBox
+                value={privadaBeca}
+                onChange={(e) => {
+                  setPrivadaBeca(e.target.value);
+                }}
+              />
+            </div>
+          </div>
+          <AvailabilitySelector />
         </div>
-       </div>
-       <AvailabilitySelector />
-       </div>
-        </div>
-
+      </div>
+      <input className={css.iniciar} type="submit" value="Iniciar"></input>
     </form>
   );
 }

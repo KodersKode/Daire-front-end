@@ -1,5 +1,5 @@
 export type TLargeTextBoxProps = {
-  text: string;
+  value: string;
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
   label?: string | undefined;
 };

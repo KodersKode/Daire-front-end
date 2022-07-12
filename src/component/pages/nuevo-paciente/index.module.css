@@ -6,8 +6,9 @@
   flex-direction: column;
   margin: 2em;
   border-radius: 10px;
-  border: 2px solid green;
+  /* border: 2px solid green; */
   padding-top: 2em;
+  padding-bottom: 2em;
 }
 
 .section {
@@ -94,7 +95,7 @@ h1 {
   width: 10em;
 }
 
-.privadaBeca{
+.privadaBeca {
   display: flex;
 
   justify-content: flex-start;
@@ -112,14 +113,39 @@ h1 {
     width: 10em;
     /* background-color: red; */
 
-    .lastsection{
-        display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 5em ;
-          border: 2px solid red;
-          /* width: 70%; */
-          align-items: center;
-          /* justify-content: center; */
-          align-content: center;
-          padding-bottom: 2em;
-    }
+.lastsection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5em;
+  /* border: 2px solid red; */
+  /* width: 70%; */
+  align-items: center;
+  /* justify-content: center; */
+  align-content: center;
+  padding-bottom: 2em;
+}
+
+.iniciar {
+  min-width: 100px;
+  min-height: 50px;
+  width: 10vw;
+  max-width: 16vw;
+  height: 6vh;
+  left: 330px;
+  top: 463px;
+  background: #fcc561;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: #fcc561;
+  /* margin-right: -10vh; */
+  word-wrap: break-word;
+  overflow: auto;
+
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1em;
+  /* line-height: 44px; */
+  overflow: auto;
+  word-wrap: break-word;
+}
