@@ -36,7 +36,11 @@ function NuevoPaciente() {
   const [antecedentesF, setAntecedentesF] = useState(""); // family history
   const [observaciones, setObservaciones] = useState(""); //observations or comments
   const [profesional, setProfesional] = useState(""); //therapist name
-  const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant
+  const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant further detail
+  const [referencia, setReferencia] = useState(""); // main therapist 
+  const [pago, setPago] = useState(""); // payment method
+  const [privBec, setPrivBec] = useState(""); // funding private or grant
+
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -55,7 +59,8 @@ function NuevoPaciente() {
   }
 
   return (
-    <form className={css.form}>
+    <form className={css.form} action="/paciente"
+  method="get">
       <h1 className={css.header}>Nuevo Paciente</h1>
       <div className={css.subsection}>
         <DropDown
@@ -304,15 +309,15 @@ function NuevoPaciente() {
           }}
         />
       </div>
-      <div className={css.section}>
+      <div className={css.datosDelCentro}>
         <h1>Datos del centro</h1>
-        <div className={css.subsection}>
-          <DropDown label="Nombre del profesional de referencia:" />
-          <DropDown label="Forma de pago" />
+        <div className={css.lastSubSection}>
+          <DropDown label="Nombre del profesional de referencia:" onChange={setReferencia} value={referencia}/>
+          <DropDown label="Forma de pago" onChange={setPago} value={pago}/>
         </div>
         <div className={css.lastsection}>
           <div className={css.privadaBeca}>
-            <DropDown label="Privada/beca" />
+            <DropDown label="Privada/beca" onChange={setPrivBec} value={privBec} />
             <div className={css.midbox}>
               <LargeTextBox
                 value={privadaBeca}

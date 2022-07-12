@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NuevoPaciente from "./component/pages/nuevo-paciente/index.tsx";
+import Paciente from "./component/pages/Paciente"
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -14,6 +15,7 @@ root.render(
         <Route>
           <Route path="/" element={<App />} />
           <Route path="/nuevo-paciente" element={<NuevoPaciente />} />
+           <Route path="/paciente" element={<Paciente />} />
         </Route>
       </Routes>
     </BrowserRouter>
