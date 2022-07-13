@@ -35,6 +35,17 @@
   padding-bottom: 2em;
 }
 
+.subsectionheader {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 3em 8vw;
+
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 2em;
+}
+
 .lastSubSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -172,4 +183,9 @@ h1 {
   /* line-height: 44px; */
   overflow: auto;
   word-wrap: break-word;
+}
+
+.antecedentesArchivo{
+ padding-bottom: 1em;
+  
 }
