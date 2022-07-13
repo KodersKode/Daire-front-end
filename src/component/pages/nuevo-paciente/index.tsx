@@ -18,6 +18,8 @@ function NuevoPaciente() {
   const [padres, setPadres] = useState(""); //parent
   const [telefono, setTelefono] = useState(""); //phone-number
   const [email, setEmail] = useState(""); //email
+  const [direccion, setDireccion] = useState(""); // address
+  const [centro, setCentro] = useState(""); //centre
   const [genograma, setGenograma] = useState(""); //family tree
   const [motivo, setMotivo] = useState(""); // reason for consultation
   const [antecedentes, setAntecedentes] = useState(""); //medical history
@@ -37,10 +39,9 @@ function NuevoPaciente() {
   const [observaciones, setObservaciones] = useState(""); //observations or comments
   const [profesional, setProfesional] = useState(""); //therapist name
   const [privadaBeca, setPrivadaBeca] = useState(""); //funding private or grant further detail
-  const [referencia, setReferencia] = useState(""); // main therapist 
+  const [referencia, setReferencia] = useState(""); // main therapist
   const [pago, setPago] = useState(""); // payment method
   const [privBec, setPrivBec] = useState(""); // funding private or grant
-
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -59,8 +60,7 @@ function NuevoPaciente() {
   }
 
   return (
-    <form className={css.form} action="/paciente"
-  method="get">
+    <form className={css.form} action="/paciente" method="get">
       <h1 className={css.header}>Nuevo Paciente</h1>
       <div className={css.subsection}>
         <DropDown
@@ -146,6 +146,14 @@ function NuevoPaciente() {
               setEmail(e.target.value);
             }}
           />
+          <SmallTextBox
+            label="Direccion"
+            value={direccion}
+            onChange={(e) => {
+              setDireccion(e.target.value);
+            }}
+          />
+          <DropDown label="Centro:" onChange={setCentro} value={centro} />
         </div>
       </div>
       <div className={css.section}>
@@ -312,12 +320,20 @@ function NuevoPaciente() {
       <div className={css.datosDelCentro}>
         <h1>Datos del centro</h1>
         <div className={css.lastSubSection}>
-          <DropDown label="Nombre del profesional de referencia:" onChange={setReferencia} value={referencia}/>
-          <DropDown label="Forma de pago" onChange={setPago} value={pago}/>
+          <DropDown
+            label="Nombre del profesional de referencia:"
+            onChange={setReferencia}
+            value={referencia}
+          />
+          <DropDown label="Forma de pago" onChange={setPago} value={pago} />
         </div>
         <div className={css.lastsection}>
           <div className={css.privadaBeca}>
-            <DropDown label="Privada/beca" onChange={setPrivBec} value={privBec} />
+            <DropDown
+              label="Privada/beca"
+              onChange={setPrivBec}
+              value={privBec}
+            />
             <div className={css.midbox}>
               <LargeTextBox
                 value={privadaBeca}
