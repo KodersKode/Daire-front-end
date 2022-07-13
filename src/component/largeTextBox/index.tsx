@@ -4,16 +4,14 @@ import css from "./index.module.css";
 
 function LargeTextBox({ value, onChange, label }: TLargeTextBoxProps) {
   return (
-    <div className={css.largeTextBox}>
+    <div>
       <label htmlFor="largeTextBox">{label}</label>
       <textarea
         name="largeTextBox"
         className={css.textArea}
         onChange={onChange}
         value={value}
-      >
-        {/* {value} */}
-      </textarea>
+      ></textarea>
     </div>
   );
 }
