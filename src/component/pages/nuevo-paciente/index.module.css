@@ -35,6 +35,17 @@
   padding-bottom: 2em;
 }
 
+.personalessection{
+    display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 3em 10vw;
+    
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      padding-bottom: 2em;
+}
+
 .subsectionheader {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -137,6 +148,7 @@ h1 {
   /* align-content:flex-start;
   align-items: flex-start; */
   align-self: flex-start;
+  flex-wrap: wrap;
   /* margin-top: 0; */
 }
 
@@ -147,17 +159,13 @@ h1 {
     width: 10em;
     /* background-color: red; */
 
-.lastsection {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5em;
-  /* border: 2px solid red; */
-  /* width: 70%; */
-  align-items: center;
-  /* justify-content: center; */
-  align-content: center;
-  padding-bottom: 2em;
-  padding-left: 5em;
+
+
+.lastsection{
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+margin-bottom: 2em;
 }
 
 .iniciar {

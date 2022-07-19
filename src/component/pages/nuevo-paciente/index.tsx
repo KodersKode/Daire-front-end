@@ -6,6 +6,7 @@ import DropDown from "../../dropDown";
 import DateSelector from "../../dateSelector";
 import LargeTextBox from "../../largeTextBox";
 import AvailabilitySelector from "../../availabilitySelector";
+import BooleanDropdown from "../../booleanDropdown";
 
 function NuevoPaciente() {
   const [fecha, setFecha] = useState(new Date());
@@ -35,7 +36,17 @@ function NuevoPaciente() {
   const [alimentacion, setAlimentacion] = useState(""); //diet
   const [esfinteres, setEsfinteres] = useState(""); //control of bowels
   const [adaptacion, setAdaptacion] = useState(""); //Adapting to school or nursery
-  const [antecedentesP, setAntecedentesP] = useState(""); //personal background
+  const [alergias, setAlergias] = useState(""); //allergies
+  const [alergiasContenido, setAlergiasContenido] = useState(""); //more detail 
+  const [asma, setAsma] = useState("") //asthma
+  const [asmaContenido, setAsmaContenido] = useState("")
+  const [enfermedades, setEnfermedades] = useState("") // illness
+  const [enfermedadesContenido, setEnfermedadesContenido] = useState("") 
+  const [operaciones, setOperaciones] = useState("") // surgical operations
+  const [operacionesContenido, setOperacionesContenido] =useState("")
+  const [psicologicos, setPsicologicos] = useState("") // psychological background 
+  const [psicologicosContenido, setPsicologicosContenido] = useState("")
+  // const [antecedentesP, setAntecedentesP] = useState(""); //personal background
   const [antecedentesF, setAntecedentesF] = useState(""); // family history
   const [observaciones, setObservaciones] = useState(""); //observations or comments
   const [profesional, setProfesional] = useState(""); //therapist name
@@ -49,6 +60,7 @@ function NuevoPaciente() {
   const [tutor2, setTutor2] = useState(""); // second guardian
   const [relacion2, setRelacion2] = useState(""); // relationship to child
   const [telefono2, setTelefono2] = useState(""); //guardian phone number for guardian 2
+
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -362,12 +374,44 @@ function NuevoPaciente() {
       </div>
       <div className={css.section}>
         <h1>Antecedentes personales</h1>
-        <LargeTextBox
-          value={antecedentesP}
-          onChange={(e) => {
-            setAntecedentesP(e.target.value);
-          }}
-        />
+         <div className={css.personalessection}>
+        <BooleanDropdown label="Alergias" value={alergias} onChange={(e) => {
+             setAlergias(e.target.value)
+               
+              }} handleChange={(e) => {
+             setAlergiasContenido(e.target.value)
+        
+              }} content={alergiasContenido}/>
+          <BooleanDropdown label="Asma" value={asma} onChange={(e) => {
+             setAsma(e.target.value)
+               
+              }} handleChange={(e) => {
+             setAsmaContenido(e.target.value)
+        
+              }} content={asmaContenido}/>
+           <BooleanDropdown label="Enfermedades Importantes" value={enfermedades} onChange={(e) => {
+             setEnfermedades(e.target.value)
+               
+              }} handleChange={(e) => {
+             setEnfermedadesContenido(e.target.value)
+        
+              }} content={enfermedadesContenido}/>
+           <BooleanDropdown label="Operaciones quirurgica" value={operaciones} onChange={(e) => {
+             setOperaciones(e.target.value)
+               
+              }} handleChange={(e) => {
+             setOperacionesContenido(e.target.value)
+        
+              }} content={operacionesContenido}/>
+            <BooleanDropdown label="Antecedentes psicologicos" value={psicologicos} onChange={(e) => {
+             setPsicologicos(e.target.value)
+               
+              }} handleChange={(e) => {
+             setPsicologicosContenido(e.target.value)
+        
+              }} content={psicologicosContenido}/>
+       
+      </div>
       </div>
       <div className={css.section}>
         <h1>Antecedentes familiares</h1>
