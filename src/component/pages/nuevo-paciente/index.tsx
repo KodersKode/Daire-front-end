@@ -15,10 +15,11 @@ function NuevoPaciente() {
   const [escuela, setEscuela] = useState(""); //school
   const [curso, setCurso] = useState(""); //class
   const [tutor, setTutor] = useState(""); //tutor
-  // const [padres, setPadres] = useState(""); //parent changing to guardian 
+  // const [padres, setPadres] = useState(""); //parent changing to guardian
   const [telefono, setTelefono] = useState(""); //phone-number
   const [email, setEmail] = useState(""); //email
   const [direccion, setDireccion] = useState(""); // address
+  const [postal, setPostal] = useState(""); //postal
   const [centro, setCentro] = useState(""); //centre
   const [genograma, setGenograma] = useState(""); //family tree
   const [motivo, setMotivo] = useState(""); // reason for consultation
@@ -45,6 +46,9 @@ function NuevoPaciente() {
   const [tutor1, setTutor1] = useState(""); // first guardian
   const [relacion1, setRelacion1] = useState(""); // relationship to child
   const [telefono1, setTelefono1] = useState(""); //guardian phone number
+  const [tutor2, setTutor2] = useState(""); // second guardian
+  const [relacion2, setRelacion2] = useState(""); // relationship to child
+  const [telefono2, setTelefono2] = useState(""); //guardian phone number for guardian 2
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -66,7 +70,7 @@ function NuevoPaciente() {
     <form className={css.form} action="/paciente" method="get">
       <h1 className={css.header}>Nuevo Paciente</h1>
       <div className={css.subsectionheader}>
-          <DropDown label="Centro:" onChange={setCentro} value={centro} />
+        <DropDown label="Centro:" onChange={setCentro} value={centro} />
         <DropDown
           label="Profesional que realiza primer visita: "
           onChange={setProfesional}
@@ -103,7 +107,7 @@ function NuevoPaciente() {
             className={css.apellido}
           />
         </div>
-        <h1>Escolares y familiares</h1>
+        <h1>Escolares</h1>
         <div className={css.subsection}>
           <SmallTextBox
             label="Escuela"
@@ -126,28 +130,57 @@ function NuevoPaciente() {
               setTutor(e.target.value);
             }}
           />
-          <SmallTextBox
-            label="Nombre de tutor"
-            value={tutor1}
-            onChange={(e) => {
-              setTutor1(e.target.value);
-            }}
-          />
-                <SmallTextBox
-            label="Relacion al menor"
-            value={relacion1}
-            onChange={(e) => {
-              setRelacion1(e.target.value);
-            }}
-          />
-                 <SmallTextBox
-            label="Telefono de tutor"
-            value={telefono1}
-            onChange={(e) => {
-              setTelefono1(e.target.value);
-            }}
-          />
         </div>
+        <h1>Familiares</h1>
+        <div className={css.subsection}>
+          <div className={css.familiares}>
+            <SmallTextBox
+              label="Nombre de tutor 1"
+              value={tutor1}
+              onChange={(e) => {
+                setTutor1(e.target.value);
+              }}
+            />
+            <SmallTextBox
+              label="Relacion al menor"
+              value={relacion1}
+              onChange={(e) => {
+                setRelacion1(e.target.value);
+              }}
+            />
+            <SmallTextBox
+              label="Telefono de tutor 1"
+              value={telefono1}
+              onChange={(e) => {
+                setTelefono1(e.target.value);
+              }}
+            />
+          </div>
+          <div className={css.familiares}>
+            <SmallTextBox
+              label="Nombre de tutor 2"
+              value={tutor2}
+              onChange={(e) => {
+                setTutor2(e.target.value);
+              }}
+            />
+            <SmallTextBox
+              label="Relacion al menor"
+              value={relacion2}
+              onChange={(e) => {
+                setRelacion2(e.target.value);
+              }}
+            />
+            <SmallTextBox
+              label="Telefono de tutor 2"
+              value={telefono2}
+              onChange={(e) => {
+                setTelefono2(e.target.value);
+              }}
+            />
+          </div>
+        </div>
+
         <h1>Datos de contacto</h1>
         <div className={css.subsection}>
           <SmallTextBox
@@ -171,12 +204,23 @@ function NuevoPaciente() {
               setDireccion(e.target.value);
             }}
           />
-        
+          <SmallTextBox
+            label="Codigo postal"
+            value={postal}
+            onChange={(e) => {
+              setPostal(e.target.value);
+            }}
+          />
         </div>
       </div>
       <div className={css.section}>
         <h1>Genograma</h1>
-         <input id="Genograma" type="file" name="Genograma" className={css.antecedentesArchivo}/>
+        <input
+          id="Genograma"
+          type="file"
+          name="Genograma"
+          className={css.antecedentesArchivo}
+        />
         <LargeTextBox
           value={genograma}
           onChange={(e) => {
@@ -194,14 +238,18 @@ function NuevoPaciente() {
         />
         <h1>Antecedentes / Tratamientos previos:</h1>
         {/* <label htmlFor="AntecedentedArchivo">Elegir archivo</label> */}
-        <input id="AntecedentesArchivo" type="file" name="AntecedentesArchivo" className={css.antecedentesArchivo}/>
+        <input
+          id="AntecedentesArchivo"
+          type="file"
+          name="AntecedentesArchivo"
+          className={css.antecedentesArchivo}
+        />
         <LargeTextBox
           value={antecedentes}
           onChange={(e) => {
             setAntecedentes(e.target.value);
           }}
         />
-        
       </div>
       <div className={css.section}>
         <h1>Descripción del niño/niña o adolescente:</h1>

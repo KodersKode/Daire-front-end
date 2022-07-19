@@ -185,7 +185,10 @@ h1 {
   word-wrap: break-word;
 }
 
-.antecedentesArchivo{
- padding-bottom: 1em;
-  
+.antecedentesArchivo {
+  padding-bottom: 1em;
+}
+
+.familiares :nth-child(1) {
+  padding-top: 1vh;
 }
