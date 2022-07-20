@@ -1,13 +1,12 @@
 .buttonContainer {
   /* background-color: aqua; */
-  border: 1px red solid;
+  /* border: 1px red solid; */
   display: grid;
-  grid-template-columns: 1fr 1fr ;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 10vh 0px;
   grid-auto-flow: row;
   grid-template-areas: ". .";
   justify-items: center;
   margin-top: 20vh;
-  
 }
