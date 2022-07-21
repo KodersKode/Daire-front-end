@@ -60,6 +60,7 @@ function NuevoPaciente() {
   const [tutor2, setTutor2] = useState(""); // second guardian
   const [relacion2, setRelacion2] = useState(""); // relationship to child
   const [telefono2, setTelefono2] = useState(""); //guardian phone number for guardian 2
+  const [tratamiento, setTratamiento] = useState(""); //type of treatment
   const [disponibilidad, setDisponibilidad] = useState(""); // availability comment section
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -459,8 +460,9 @@ function NuevoPaciente() {
             value={referencia}
           />
           <DropDown label="Forma de pago" onChange={setPago} value={pago} />
-        </div>
-        <div className={css.lastsection}>
+          <DropDown label="Tipo de tratamiento" onChange={setTratamiento} value={tratamiento} />
+       
+        
           <div className={css.privadaBeca}>
             <DropDown
               label="Privada/beca"
@@ -469,16 +471,19 @@ function NuevoPaciente() {
             />
             <div className={css.midbox}>
               <LargeTextBox
+              placeholder="Mas informacion... "
                 value={privadaBeca}
                 onChange={(e) => {
                   setPrivadaBeca(e.target.value);
                 }}
               />
-            </div>
+               </div>
+               </div>
+           
           </div>
-        </div>
+       
         <h1>Disponibilidad</h1>
-        <div className={css.subsection}>
+        <div className={css.lasteversection}>
           <AvailabilitySelector />
          <div className={css.commentBox}> <LargeTextBox placeholder="Mas informacion..."
             value={disponibilidad}

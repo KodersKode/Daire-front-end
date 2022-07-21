@@ -60,7 +60,7 @@
 .lastSubSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3em 15vw;
+  grid-gap: 0em 10vw;
 
   align-items: center;
   justify-content: center;
@@ -142,28 +142,33 @@ h1 {
 
 .privadaBeca {
   display: flex;
-
-  justify-content: flex-start;
-  flex-direction: row;
-  /* align-content:flex-start;
-  align-items: flex-start; */
-  align-self: flex-start;
-  flex-wrap: wrap;
-  /* margin-top: 0; */
+  align-items: flex-start;
+  margin-top: 5em;
 }
 
-/* .privadaBeca :nth-Child(2){
-  display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 10em;
-    /* background-color: red; */
+/* .privadaBeca :nth-child(2){
+  align-items: flex-end;
+  background-color: red;
+} */
+
 
 .lastsection {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  margin-left: 5em;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin-bottom: 2em;
+}
+
+.lasteversection{
+    display: flex;
+      justify-content: space-evenly;
+      
+      
+      flex-wrap: wrap;
+      margin-bottom: 2em;
+
 }
 
 .iniciar {
