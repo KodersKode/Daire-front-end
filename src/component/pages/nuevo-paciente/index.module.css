@@ -35,15 +35,15 @@
   padding-bottom: 2em;
 }
 
-.personalessection{
-    display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 3em 10vw;
-    
-      align-items: center;
-      justify-content: center;
-      align-content: center;
-      padding-bottom: 2em;
+.personalessection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 3em 10vw;
+
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 2em;
 }
 
 .subsectionheader {
@@ -60,7 +60,7 @@
 .lastSubSection {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 3em 15vw;
+  grid-gap: 0em 10vw;
 
   align-items: center;
   justify-content: center;
@@ -142,30 +142,33 @@ h1 {
 
 .privadaBeca {
   display: flex;
-
-  justify-content: flex-start;
-  flex-direction: row;
-  /* align-content:flex-start;
-  align-items: flex-start; */
-  align-self: flex-start;
-  flex-wrap: wrap;
-  /* margin-top: 0; */
+  align-items: flex-start;
+  margin-top: 5em;
 }
 
-/* .privadaBeca :nth-Child(2){
+/* .privadaBeca :nth-child(2){
+  align-items: flex-end;
+  background-color: red;
+} */
+
+
+.lastsection {
   display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 10em;
-    /* background-color: red; */
+  justify-content: flex-start;
+  margin-left: 5em;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 2em;
+}
 
+.lasteversection{
+    display: flex;
+      justify-content: space-evenly;
+      
+      
+      flex-wrap: wrap;
+      margin-bottom: 2em;
 
-
-.lastsection{
-display: flex;
-justify-content: space-evenly;
-flex-wrap: wrap;
-margin-bottom: 2em;
 }
 
 .iniciar {
@@ -200,3 +203,52 @@ margin-bottom: 2em;
 .familiares :nth-child(1) {
   padding-top: 1vh;
 }
+
+.ninoSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+  width: 70vw;
+  /* align-items: center; */
+  border: 2px solid #483558;
+  border-radius: 10px;
+  margin-top: 4em;
+  margin-bottom: 2em;
+}
+
+.largebox {
+  margin-left: 4em;
+}
+
+.largebox :nth-child(2) {
+  width: 60vw;
+
+  height: 10em;
+  margin-top: 1em;
+}
+
+.largebox :nth-child(1) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 20em;
+}
+
+.commentBox {
+  align-self: flex-start;
+}
+
+.commentBox :nth-child(2) {
+  width: 30vw;
+
+  height: 5em;
+  margin-top: 1em;
+}
+
+/* .commentBox :nth-child(1) {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 15em;
+} */
