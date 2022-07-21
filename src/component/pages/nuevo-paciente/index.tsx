@@ -37,15 +37,15 @@ function NuevoPaciente() {
   const [esfinteres, setEsfinteres] = useState(""); //control of bowels
   const [adaptacion, setAdaptacion] = useState(""); //Adapting to school or nursery
   const [alergias, setAlergias] = useState(""); //allergies
-  const [alergiasContenido, setAlergiasContenido] = useState(""); //more detail 
-  const [asma, setAsma] = useState("") //asthma
-  const [asmaContenido, setAsmaContenido] = useState("")
-  const [enfermedades, setEnfermedades] = useState("") // illness
-  const [enfermedadesContenido, setEnfermedadesContenido] = useState("") 
-  const [operaciones, setOperaciones] = useState("") // surgical operations
-  const [operacionesContenido, setOperacionesContenido] =useState("")
-  const [psicologicos, setPsicologicos] = useState("") // psychological background 
-  const [psicologicosContenido, setPsicologicosContenido] = useState("")
+  const [alergiasContenido, setAlergiasContenido] = useState(""); //more detail
+  const [asma, setAsma] = useState(""); //asthma
+  const [asmaContenido, setAsmaContenido] = useState("");
+  const [enfermedades, setEnfermedades] = useState(""); // illness
+  const [enfermedadesContenido, setEnfermedadesContenido] = useState("");
+  const [operaciones, setOperaciones] = useState(""); // surgical operations
+  const [operacionesContenido, setOperacionesContenido] = useState("");
+  const [psicologicos, setPsicologicos] = useState(""); // psychological background
+  const [psicologicosContenido, setPsicologicosContenido] = useState("");
   // const [antecedentesP, setAntecedentesP] = useState(""); //personal background
   const [antecedentesF, setAntecedentesF] = useState(""); // family history
   const [observaciones, setObservaciones] = useState(""); //observations or comments
@@ -60,7 +60,7 @@ function NuevoPaciente() {
   const [tutor2, setTutor2] = useState(""); // second guardian
   const [relacion2, setRelacion2] = useState(""); // relationship to child
   const [telefono2, setTelefono2] = useState(""); //guardian phone number for guardian 2
-
+  const [disponibilidad, setDisponibilidad] = useState(""); // availability comment section
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setNombre(e.target.value);
@@ -263,46 +263,46 @@ function NuevoPaciente() {
           }}
         />
       </div>
-      <div className={css.section}>
+      <div className={css.ninoSection}>
         <h1>Descripción del niño/niña o adolescente:</h1>
-        <div className={css.subsection}>
-          <div className={css.midbox}>
-            <LargeTextBox
-              label="Temperamento"
-              value={temperamento}
-              onChange={(e) => {
-                setTemperamento(e.target.value);
-              }}
-            />
-          </div>
-          <div className={css.midbox}>
-            <LargeTextBox
-              label="Sociabilización"
-              value={sociabilizacion}
-              onChange={(e) => {
-                setSociabilizacion(e.target.value);
-              }}
-            />
-          </div>
-          <div className={css.midbox}>
-            <LargeTextBox
-              label="Comportamiento en casa y en la escuela:"
-              value={comportamiento}
-              onChange={(e) => {
-                setComportamiento(e.target.value);
-              }}
-            />
-          </div>
-          <div className={css.midbox}>
-            <LargeTextBox
-              label="Aprendizajes"
-              value={aprendizajes}
-              onChange={(e) => {
-                setAprendizajes(e.target.value);
-              }}
-            />
-          </div>
+        {/* <div className={css.subsection}> */}
+        <div className={css.largebox}>
+          <LargeTextBox
+            label="Temperamento"
+            value={temperamento}
+            onChange={(e) => {
+              setTemperamento(e.target.value);
+            }}
+          />
         </div>
+        <div className={css.largebox}>
+          <LargeTextBox
+            label="Sociabilización"
+            value={sociabilizacion}
+            onChange={(e) => {
+              setSociabilizacion(e.target.value);
+            }}
+          />
+        </div>
+        <div className={css.largebox}>
+          <LargeTextBox
+            label="Comportamiento en casa y en la escuela:"
+            value={comportamiento}
+            onChange={(e) => {
+              setComportamiento(e.target.value);
+            }}
+          />
+        </div>
+        <div className={css.largebox}>
+          <LargeTextBox
+            label="Aprendizajes"
+            value={aprendizajes}
+            onChange={(e) => {
+              setAprendizajes(e.target.value);
+            }}
+          />
+        </div>
+        {/* </div> */}
       </div>
       <div className={css.section}>
         <h1>Desarrollo</h1>
@@ -374,44 +374,63 @@ function NuevoPaciente() {
       </div>
       <div className={css.section}>
         <h1>Antecedentes personales</h1>
-         <div className={css.personalessection}>
-        <BooleanDropdown label="Alergias" value={alergias} onChange={(e) => {
-             setAlergias(e.target.value)
-               
-              }} handleChange={(e) => {
-             setAlergiasContenido(e.target.value)
-        
-              }} content={alergiasContenido}/>
-          <BooleanDropdown label="Asma" value={asma} onChange={(e) => {
-             setAsma(e.target.value)
-               
-              }} handleChange={(e) => {
-             setAsmaContenido(e.target.value)
-        
-              }} content={asmaContenido}/>
-           <BooleanDropdown label="Enfermedades Importantes" value={enfermedades} onChange={(e) => {
-             setEnfermedades(e.target.value)
-               
-              }} handleChange={(e) => {
-             setEnfermedadesContenido(e.target.value)
-        
-              }} content={enfermedadesContenido}/>
-           <BooleanDropdown label="Operaciones quirurgica" value={operaciones} onChange={(e) => {
-             setOperaciones(e.target.value)
-               
-              }} handleChange={(e) => {
-             setOperacionesContenido(e.target.value)
-        
-              }} content={operacionesContenido}/>
-            <BooleanDropdown label="Antecedentes psicologicos" value={psicologicos} onChange={(e) => {
-             setPsicologicos(e.target.value)
-               
-              }} handleChange={(e) => {
-             setPsicologicosContenido(e.target.value)
-        
-              }} content={psicologicosContenido}/>
-       
-      </div>
+        <div className={css.personalessection}>
+          <BooleanDropdown
+            label="Alergias"
+            value={alergias}
+            onChange={(e) => {
+              setAlergias(e.target.value);
+            }}
+            handleChange={(e) => {
+              setAlergiasContenido(e.target.value);
+            }}
+            content={alergiasContenido}
+          />
+          <BooleanDropdown
+            label="Asma"
+            value={asma}
+            onChange={(e) => {
+              setAsma(e.target.value);
+            }}
+            handleChange={(e) => {
+              setAsmaContenido(e.target.value);
+            }}
+            content={asmaContenido}
+          />
+          <BooleanDropdown
+            label="Enfermedades Importantes"
+            value={enfermedades}
+            onChange={(e) => {
+              setEnfermedades(e.target.value);
+            }}
+            handleChange={(e) => {
+              setEnfermedadesContenido(e.target.value);
+            }}
+            content={enfermedadesContenido}
+          />
+          <BooleanDropdown
+            label="Operaciones quirurgicas"
+            value={operaciones}
+            onChange={(e) => {
+              setOperaciones(e.target.value);
+            }}
+            handleChange={(e) => {
+              setOperacionesContenido(e.target.value);
+            }}
+            content={operacionesContenido}
+          />
+          <BooleanDropdown
+            label="Antecedentes psicologicos"
+            value={psicologicos}
+            onChange={(e) => {
+              setPsicologicos(e.target.value);
+            }}
+            handleChange={(e) => {
+              setPsicologicosContenido(e.target.value);
+            }}
+            content={psicologicosContenido}
+          />
+        </div>
       </div>
       <div className={css.section}>
         <h1>Antecedentes familiares</h1>
@@ -457,7 +476,16 @@ function NuevoPaciente() {
               />
             </div>
           </div>
+        </div>
+        <h1>Disponibilidad</h1>
+        <div className={css.subsection}>
           <AvailabilitySelector />
+         <div className={css.commentBox}> <LargeTextBox placeholder="Mas informacion..."
+            value={disponibilidad}
+            onChange={(e) => {
+              setDisponibilidad(e.target.value);
+            }}
+          /></div>
         </div>
       </div>
       <input className={css.iniciar} type="submit" value="Iniciar"></input>
