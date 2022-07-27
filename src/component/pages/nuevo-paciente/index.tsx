@@ -23,7 +23,21 @@ function NuevoPaciente() {
   const [postal, setPostal] = useState(""); //postal
   const [centro, setCentro] = useState(""); //centre
   const [genograma, setGenograma] = useState(""); //family tree
-  const [motivo, setMotivo] = useState(""); // reason for consultation
+  const [motivo, setMotivo] = useState("Laura"); // reason for consultation
+  const [psicoterapéutica1, setPsicoterapéutica1] = useState(""); //¿Cuál es el problema desde el punto de vista de cada uno?
+  const [psicoterapéutica2, setPsicoterapéutica2] = useState(""); //¿Cuándo empezó este problema? 
+  const [psicoterapéutica3, setPsicoterapéutica3] = useState(""); //¿Que soluciones se han intentado?
+  const [psicoterapéutica4, setPsicoterapéutica4] = useState(""); //¿Porque han decidido pedir consulta ahora?
+  const [psicoterapéutica5, setPsicoterapéutica5] = useState(""); //¿Están todos de acuerdo en pedir ayuda? 
+  const [psicoterapéutica6, setPsicoterapéutica6] = useState(""); //¿Cuales han funcionado y cuáles no?
+  const [psicoterapéutica7, setPsicoterapéutica7] = useState(""); //¿Que mejora el problema?
+  const [psicoterapéutica8, setPsicoterapéutica8] = useState(""); //¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema?
+  const [psicoterapéutica9, setPsicoterapéutica9] = useState(""); //¿Qué esperan del trabajo terapéutico?
+  const [clínica1, setClínica1] = useState(""); //¿Cuál es la dificultad o problema?
+  const [clínica2, setClínica2] = useState(""); //¿Quién lo ha detectado y quien decide pedir ayuda o hacer una valoración?
+  const [clínica3, setClínica3] = useState(""); //¿Están todos de acuerdo?
+  const [clínica4, setClínica4] = useState(""); //¿En que ámbitos repercute la dificultad? (Escolar/familiar/social)
+  const [clínica5, setClínica5] = useState(""); //¿Desde cuando existen estas dificultades y si se han valorado o trabajado previamente?
   const [antecedentes, setAntecedentes] = useState(""); //medical history
   const [temperamento, setTemperamento] = useState(""); //nature of child
   const [sociabilizacion, setSociabilizacion] = useState(""); //social skills
@@ -83,10 +97,14 @@ function NuevoPaciente() {
     <form className={css.form} action="/paciente" method="get">
       <h1 className={css.header}>Nuevo Paciente</h1>
       <div className={css.subsectionheader}>
-        <DropDown label="Centro:" onChange={setCentro} value={centro} />
+        <DropDown label="Centro:" onChange={((event) => {
+    setCentro(event.target.value);
+  })} value={centro} />
         <DropDown
           label="Profesional que realiza primer visita: "
-          onChange={setProfesional}
+          onChange={((event) => {
+    setProfesional(event.target.value);
+  })}
           value={profesional}
         />
         <DateSelector label="Fecha" onChange={setFecha} value={fecha} />
@@ -243,12 +261,120 @@ function NuevoPaciente() {
       </div>
       <div className={css.section}>
         <h1>Motivo de consulta</h1>
+        <DropDown label="Selecciona una opcion: " onChange={((event) => {
+    setMotivo(event.target.value);
+  })} value={motivo}/>
+        {motivo === "Laura"?
+        
+        <div >
         <LargeTextBox
-          value={motivo}
+        label="¿Cuál es el problema desde el punto de vista de cada uno?"
+          value={psicoterapéutica1}
           onChange={(e) => {
-            setMotivo(e.target.value);
+            setPsicoterapéutica1(e.target.value);
           }}
         />
+         <LargeTextBox
+        label="¿Cuándo empezó este problema?"
+          value={psicoterapéutica2}
+          onChange={(e) => {
+            setPsicoterapéutica2(e.target.value);
+          }}
+        />
+          <LargeTextBox
+        label="¿Que soluciones se han intentado?"
+          value={psicoterapéutica3}
+          onChange={(e) => {
+            setPsicoterapéutica3(e.target.value);
+          }}
+        />
+         <LargeTextBox
+        label="¿Porque han decidido pedir consulta ahora?"
+          value={psicoterapéutica4}
+          onChange={(e) => {
+            setPsicoterapéutica4(e.target.value);
+          }}
+        />
+           <LargeTextBox
+        label="¿Están todos de acuerdo en pedir ayuda? "
+          value={psicoterapéutica5}
+          onChange={(e) => {
+            setPsicoterapéutica5(e.target.value);
+          }}
+        />
+      
+            <LargeTextBox
+        label="¿Cuales han funcionado y cuáles no? "
+          value={psicoterapéutica6}
+          onChange={(e) => {
+            setPsicoterapéutica6(e.target.value);
+          }}
+        />
+            <LargeTextBox
+        label="¿Que mejora el problema? "
+          value={psicoterapéutica7}
+          onChange={(e) => {
+            setPsicoterapéutica7(e.target.value);
+          }}
+        />
+           <LargeTextBox
+        label="¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema? "
+          value={psicoterapéutica8}
+          onChange={(e) => {
+            setPsicoterapéutica8(e.target.value);
+          }}
+        />
+           <LargeTextBox
+        label="¿Qué esperan del trabajo terapéutico? "
+          value={psicoterapéutica9}
+          onChange={(e) => {
+            setPsicoterapéutica9(e.target.value);
+          }}
+        />
+        
+        </div>
+        
+        :
+        <>
+          <LargeTextBox
+        label="¿Cuál es la dificultad o problema?"
+          value={clínica1}
+          onChange={(e) => {
+            setClínica1(e.target.value);
+          }}
+        />
+             <LargeTextBox
+        label="¿Quién lo ha detectado y quien decide pedir ayuda o hacer una valoración?"
+          value={clínica2}
+          onChange={(e) => {
+            setClínica2(e.target.value);
+          }}
+        />
+             <LargeTextBox
+        label="¿Están todos de acuerdo?"
+          value={clínica3}
+          onChange={(e) => {
+            setClínica3(e.target.value);
+          }}
+        />
+             <LargeTextBox
+        label="¿En que ámbitos repercute la dificultad? (Escolar/familiar/social)"
+          value={clínica4}
+          onChange={(e) => {
+            setClínica4(e.target.value);
+          }}
+        />
+             <LargeTextBox
+        label="¿Desde cuando existen estas dificultades y si se han valorado o trabajado previamente?"
+          value={clínica5}
+          onChange={(e) => {
+            setClínica5(e.target.value);
+          }}
+        />
+        </>
+        
+        }
+
         <h1>Antecedentes / Tratamientos previos:</h1>
         {/* <label htmlFor="AntecedentedArchivo">Elegir archivo</label> */}
         <input

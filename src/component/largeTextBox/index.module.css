@@ -1,6 +1,8 @@
-/* .largeTextBox {
-  width: 60vw;
-} */
+.largeTextBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .textArea {
   width: 60vw;
@@ -12,4 +14,5 @@
   font-family: "Inter", sans-serif;
   font-size: 1em;
   resize: vertical;
+  margin-top: 1em;
 }
