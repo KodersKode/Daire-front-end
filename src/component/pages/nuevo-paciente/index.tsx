@@ -730,7 +730,7 @@ function NuevoPaciente() {
               value={privBec}
               options={privadaBecaOpciones}
             />
-            <div className={css.midbox}>
+            <div className={css.privBecbox}>
               <LargeTextBox
                 placeholder="Mas informacion... "
                 value={privadaBeca}
