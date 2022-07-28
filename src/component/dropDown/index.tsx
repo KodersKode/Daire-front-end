@@ -1,6 +1,6 @@
 import React from "react";
 import css from "./index.module.css";
-function DropDown({ label, onChange, value }) {
+function DropDown({ label, onChange, value, options }) {
   return (
     <div className={css.wrapper}>
       <div className={css.dropdown}>
@@ -11,8 +11,15 @@ function DropDown({ label, onChange, value }) {
           onChange={onChange}
           value={value}
         >
-          <option value="Laura">Laura</option>
-          <option value="Eva">Eva</option>
+          {options ? (
+            options.map((option) => {
+              return <option value={option}>{option}</option>;
+            })
+          ) : (
+            <option value="Laura">Laura</option>
+          )}
+          {/* <option value="Laura">Laura</option> */}
+          {/* <option value="Eva">Eva</option> */}
         </select>
       </div>
     </div>
