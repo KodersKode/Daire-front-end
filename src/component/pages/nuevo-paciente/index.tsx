@@ -137,6 +137,7 @@ function NuevoPaciente() {
   const [clínica3, setClínica3] = useState(""); //¿Están todos de acuerdo?
   const [clínica4, setClínica4] = useState(""); //¿En que ámbitos repercute la dificultad? (Escolar/familiar/social)
   const [clínica5, setClínica5] = useState(""); //¿Desde cuando existen estas dificultades y si se han valorado o trabajado previamente?
+  const [sinEstructura, setsinEstructura] = useState(""); //unstructured response
   const [antecedentes, setAntecedentes] = useState(""); //medical history
   const [temperamento, setTemperamento] = useState(""); //nature of child
   const [sociabilizacion, setSociabilizacion] = useState(""); //social skills
@@ -380,6 +381,7 @@ function NuevoPaciente() {
           options={[
             "Demanda psicoterapéutica",
             "Demanda clínica o de aprendizajes",
+            "Entrevista no estructurada"
           ]}
         />
         {motivo === "Demanda psicoterapéutica" ? (
@@ -442,7 +444,7 @@ function NuevoPaciente() {
               }}
             />
           </div>
-        ) : (
+        ) : motivo === "Demanda clínica o de aprendizajes"? (
           <>
             <LargeTextBox
               label="¿Cuál es la dificultad o problema?"
@@ -480,6 +482,17 @@ function NuevoPaciente() {
               }}
             />
           </>
+        ): (
+          <div className={css.sinEstructura}>
+           <LargeTextBox
+              label="Entrevista no estructurada"
+              
+              value={sinEstructura}
+              onChange={(e) => {
+                setsinEstructura(e.target.value);
+              }}
+            />
+            </div>
         )}
 
         <h1>Antecedentes / Tratamientos previos:</h1>

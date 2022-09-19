@@ -252,3 +252,8 @@ h1 {
   flex-direction: column;
   width: 15em;
 } */
+
+.sinEstructura :nth-child(2){
+  height: 30em;
+  
+}

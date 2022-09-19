@@ -4,4 +4,5 @@ export type TLargeTextBoxProps = {
   label?: string | undefined;
   placeholder?: string | undefined;
   spellCheck?: boolean | string;
+  className?: string;
 };
