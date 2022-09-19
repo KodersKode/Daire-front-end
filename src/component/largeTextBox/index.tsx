@@ -2,7 +2,12 @@ import React from "react";
 import { TLargeTextBoxProps } from "./index.definition";
 import css from "./index.module.css";
 
-function LargeTextBox({ value, onChange, label, placeholder }: TLargeTextBoxProps) {
+function LargeTextBox({
+  value,
+  onChange,
+  label,
+  placeholder,
+}: TLargeTextBoxProps) {
   return (
     <div className={css.largeTextBox}>
       <label htmlFor="largeTextBox">{label}</label>
@@ -12,6 +17,7 @@ function LargeTextBox({ value, onChange, label, placeholder }: TLargeTextBoxProp
         className={css.textArea}
         onChange={onChange}
         value={value}
+        spellCheck="true"
       ></textarea>
     </div>
   );

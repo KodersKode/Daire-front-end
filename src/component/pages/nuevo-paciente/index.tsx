@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SmallTextBox from "../../smallTextBox";
 import { useState } from "react";
 import css from "./index.module.css";
@@ -7,6 +7,7 @@ import DateSelector from "../../dateSelector";
 import LargeTextBox from "../../largeTextBox";
 import AvailabilitySelector from "../../availabilitySelector";
 import BooleanDropdown from "../../booleanDropdown";
+import ImageUpload from "../../imageUpload/uploadImage";
 
 function NuevoPaciente() {
   const profesionales = [
@@ -110,7 +111,8 @@ function NuevoPaciente() {
   const [fecha, setFecha] = useState(new Date());
   const [dob, setDob] = useState(new Date());
   const [nombre, setNombre] = useState(""); //firstName
-  const [apellido, setApellido] = useState(""); //lastName
+  const [apellido, setApellido] = useState(""); //lastName1
+  const [apellido2, setApellido2] = useState(""); //lastName2
   const [escuela, setEscuela] = useState(""); //school
   const [curso, setCurso] = useState(""); //class
   const [tutor, setTutor] = useState(""); //tutor
@@ -127,15 +129,15 @@ function NuevoPaciente() {
   const [psicoterapéutica3, setPsicoterapéutica3] = useState(""); //¿Que soluciones se han intentado?
   const [psicoterapéutica4, setPsicoterapéutica4] = useState(""); //¿Porque han decidido pedir consulta ahora?
   const [psicoterapéutica5, setPsicoterapéutica5] = useState(""); //¿Están todos de acuerdo en pedir ayuda?
-  const [psicoterapéutica6, setPsicoterapéutica6] = useState(""); //¿Cuales han funcionado y cuáles no?
-  const [psicoterapéutica7, setPsicoterapéutica7] = useState(""); //¿Que mejora el problema?
-  const [psicoterapéutica8, setPsicoterapéutica8] = useState(""); //¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema?
-  const [psicoterapéutica9, setPsicoterapéutica9] = useState(""); //¿Qué esperan del trabajo terapéutico?
+  const [psicoterapéutica6, setPsicoterapéutica6] = useState(""); //¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema?
+  const [psicoterapéutica7, setPsicoterapéutica7] = useState(""); //¿Qué esperan del trabajo terapéutico?
+  const [psicoterapéutica8, setPsicoterapéutica8] = useState(""); //Other comments?
   const [clínica1, setClínica1] = useState(""); //¿Cuál es la dificultad o problema?
   const [clínica2, setClínica2] = useState(""); //¿Quién lo ha detectado y quien decide pedir ayuda o hacer una valoración?
   const [clínica3, setClínica3] = useState(""); //¿Están todos de acuerdo?
   const [clínica4, setClínica4] = useState(""); //¿En que ámbitos repercute la dificultad? (Escolar/familiar/social)
   const [clínica5, setClínica5] = useState(""); //¿Desde cuando existen estas dificultades y si se han valorado o trabajado previamente?
+  const [sinEstructura, setsinEstructura] = useState(""); //unstructured response
   const [antecedentes, setAntecedentes] = useState(""); //medical history
   const [temperamento, setTemperamento] = useState(""); //nature of child
   const [sociabilizacion, setSociabilizacion] = useState(""); //social skills
@@ -224,10 +226,18 @@ function NuevoPaciente() {
             className={css.nombre}
           />
           <SmallTextBox
-            label="Apellido"
+            label="Apellido 1"
             value={apellido}
             onChange={(e) => {
               setApellido(e.target.value);
+            }}
+            className={css.apellido}
+          />
+          <SmallTextBox
+            label="Apellido 2"
+            value={apellido2}
+            onChange={(e) => {
+              setApellido2(e.target.value);
             }}
             className={css.apellido}
           />
@@ -352,12 +362,7 @@ function NuevoPaciente() {
       </div>
       <div className={css.section}>
         <h1>Genograma</h1>
-        <input
-          id="Genograma"
-          type="file"
-          name="Genograma"
-          className={css.antecedentesArchivo}
-        />
+        <ImageUpload />
         <LargeTextBox
           value={genograma}
           onChange={(e) => {
@@ -376,6 +381,7 @@ function NuevoPaciente() {
           options={[
             "Demanda psicoterapéutica",
             "Demanda clínica o de aprendizajes",
+            "Entrevista no estructurada"
           ]}
         />
         {motivo === "Demanda psicoterapéutica" ? (
@@ -417,35 +423,28 @@ function NuevoPaciente() {
             />
 
             <LargeTextBox
-              label="¿Cuales han funcionado y cuáles no? "
+              label="¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema? "
               value={psicoterapéutica6}
               onChange={(e) => {
                 setPsicoterapéutica6(e.target.value);
               }}
             />
             <LargeTextBox
-              label="¿Que mejora el problema? "
+              label="¿Qué esperan del trabajo terapéutico? "
               value={psicoterapéutica7}
               onChange={(e) => {
                 setPsicoterapéutica7(e.target.value);
               }}
             />
             <LargeTextBox
-              label="¿Que actitud/sentimientos tienen los miembros de la familia respecto al problema? "
+              label="Otros comentarios? "
               value={psicoterapéutica8}
               onChange={(e) => {
                 setPsicoterapéutica8(e.target.value);
               }}
             />
-            <LargeTextBox
-              label="¿Qué esperan del trabajo terapéutico? "
-              value={psicoterapéutica9}
-              onChange={(e) => {
-                setPsicoterapéutica9(e.target.value);
-              }}
-            />
           </div>
-        ) : (
+        ) : motivo === "Demanda clínica o de aprendizajes"? (
           <>
             <LargeTextBox
               label="¿Cuál es la dificultad o problema?"
@@ -483,6 +482,17 @@ function NuevoPaciente() {
               }}
             />
           </>
+        ): (
+          <div className={css.sinEstructura}>
+           <LargeTextBox
+              label="Entrevista no estructurada"
+              
+              value={sinEstructura}
+              onChange={(e) => {
+                setsinEstructura(e.target.value);
+              }}
+            />
+            </div>
         )}
 
         <h1>Antecedentes / Tratamientos previos:</h1>
