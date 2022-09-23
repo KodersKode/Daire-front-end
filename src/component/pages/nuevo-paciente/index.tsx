@@ -372,6 +372,7 @@ function NuevoPaciente() {
       </div>
       <div className={css.section}>
         <h1>Motivo de consulta</h1>
+        <div className={css.motivoDropdown}>
         <DropDown
           label="Selecciona una opcion: "
           onChange={(event) => {
@@ -384,6 +385,7 @@ function NuevoPaciente() {
             "Entrevista no estructurada"
           ]}
         />
+</div>
         {motivo === "Demanda psicoterapéutica" ? (
           <div>
             <LargeTextBox
@@ -689,7 +691,7 @@ function NuevoPaciente() {
         />
       </div>
       <div className={css.section}>
-        <h1>Obervaciones</h1>
+        <h1>Observaciones</h1>
         <LargeTextBox
           value={observaciones}
           onChange={(e) => {
@@ -702,7 +704,9 @@ function NuevoPaciente() {
         <div className={css.lastSubSection}>
           <DropDown
             label="Nombre del profesional de referencia:"
-            onChange={setReferencia}
+            onChange={(event) => {
+            setReferencia(event.target.value);
+          }}
             value={referencia}
             options={["Laura Romagós", "Cesar Patiño"]}
           />

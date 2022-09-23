@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./index.module.css";
 
 function AvailabilitySelector() {
+
+  
+const [checkedStateAM, setCheckedStateAM] = useState(new Array(7).fill(false));
+const [checkStatePM, setCheckStatePM] = useState(new Array(7).fill(false));
+
+  const handleOnChange = (position) => {
+    const updatedCheckedState = checkedStateAM.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckedStateAM(updatedCheckedState)};
+
+      const handleOnTick = (position) => {
+    const updatedCheckState = checkStatePM.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    setCheckStatePM(updatedCheckState)};
+
+    const days = [{name: "Lunes"}, {name:"Martes"}, {name:"Miércoles"}, {name:"Jueves"}, {name: "Viernes"}, {name: "Sabado"}, {name: "Domingo"}]
+
+    console.log(`CheckedStateAM: ${checkedStateAM}`)
+    console.log(`CheckStatePM: ${checkStatePM}`)
   return (
     <div className={css.disponibilidad}>
       <div className={css.title}>
@@ -10,9 +33,30 @@ function AvailabilitySelector() {
         <p>PM</p>
       </div>
 
-      <div className={css.dias}>
+      {days.map(({ name }, index) => {
+          return (
+            <>
+            <> 
+            <div className={css.dias}>
+        <label htmlFor="Lunes"> {name}</label>
+        <input type="checkbox" name={name} value={name} checked={checkedStateAM[index]}
+          onChange={() => handleOnChange(index)}/>
+          <input type="checkbox" name={name} value={name} checked={checkStatePM[index]}
+          onChange={() => handleOnTick(index)}/>
+        {/* <input type="checkbox" name="Lunes" value="Lunes pm" /> */}
+      </div>
+      </>
+      </>)}
+      )}
+</div>)}
+
+export default AvailabilitySelector;
+
+
+      {/* <div className={css.dias}>
         <label htmlFor="Lunes"> Lunes</label>
-        <input type="checkbox" name="Lunes" value="Lunes am" />
+        <input type="checkbox" name="Lunes" value="Lunes am" checked={checkedState[index]}
+          onChange={() => handleOnChange(index)}/>
         <input type="checkbox" name="Lunes" value="Lunes pm" />
       </div>
       <div className={css.dias}>
@@ -47,6 +91,6 @@ function AvailabilitySelector() {
       </div>
     </div>
   );
-}
+} */}
 
-export default AvailabilitySelector;
+

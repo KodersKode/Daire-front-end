@@ -257,3 +257,12 @@ h1 {
   height: 30em;
   
 }
+
+.motivoDropdown{
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: start;
+  align-content: flex-start;  */
+  align-self: flex-start;
+  padding-left: 5em;
+}
